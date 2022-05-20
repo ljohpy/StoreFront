@@ -1,10 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace StoreFront.UI.MVC.Models
+namespace StoreFront.DATA.EF.Models
 {
     public partial class Car
     {
+        public Car()
+        {
+            OrderProducts = new HashSet<OrderProduct>();
+        }
+
         public int CarId { get; set; }
         public string Make { get; set; } = null!;
         public string Model { get; set; } = null!;
@@ -19,5 +24,6 @@ namespace StoreFront.UI.MVC.Models
 
         public virtual ProductStatus Status { get; set; } = null!;
         public virtual BodyStyle Style { get; set; } = null!;
+        public virtual ICollection<OrderProduct> OrderProducts { get; set; }
     }
 }

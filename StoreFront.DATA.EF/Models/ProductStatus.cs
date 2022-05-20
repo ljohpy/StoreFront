@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace StoreFront.UI.MVC.Models
+namespace StoreFront.DATA.EF.Models
 {
-    public partial class BodyStyle
+    public partial class ProductStatus
     {
-        public BodyStyle()
+        public ProductStatus()
         {
             Cars = new HashSet<Car>();
         }
 
-        public int StyleId { get; set; }
-        public string StyleName { get; set; } = null!;
+        public int StatusId { get; set; }
+        public string StatusName { get; set; } = null!;
         public string? Description { get; set; }
 
         public virtual ICollection<Car> Cars { get; set; }
