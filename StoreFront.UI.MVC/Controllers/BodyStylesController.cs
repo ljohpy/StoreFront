@@ -6,9 +6,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using StoreFront.DATA.EF.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace StoreFront.UI.MVC.Controllers
 {
+    [Authorize(Roles ="Admin")]
+
     public class BodyStylesController : Controller
     {
         private readonly StoreFrontContext _context;

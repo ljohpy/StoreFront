@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<StoreFront.DATA.EF.Models.Car>
 
 @{
-    ViewData["Title"] = "Inventory";
+    ViewData["Title"] = "Discountinued";
 }
 
-<h1>@ViewData["Title"]</h1>
+<h1>Discountinued</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -42,9 +42,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Style)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ProductImage)
-            </th>
+          @*  <th>
+                @Html.DisplayNameFor(model => model.Discontinued)
+            </th>*@
             <th></th>
         </tr>
     </thead>
@@ -81,10 +81,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Style.StyleName)
             </td>
-            <td>
-                @*@Html.DisplayFor(modelItem => item.ProductImage)*@
-                <img src="~/assets/img/t_@item.ProductImage" class="img-fluid" alt="@item.Model" />
-            </td>
+          @*  <td>
+                @Html.DisplayFor(modelItem => item.Discontinued)
+            </td>*@
             <td>
                 <a asp-action="Edit" asp-route-id="@item.CarId">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.CarId">Details</a> |

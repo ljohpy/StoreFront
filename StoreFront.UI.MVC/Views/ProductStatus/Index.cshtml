@@ -1,13 +1,16 @@
 ﻿@model IEnumerable<StoreFront.DATA.EF.Models.ProductStatus>
 
 @{
-    ViewData["Title"] = "Product Statusf";
+    ViewData["Title"] = "Product Status";
 }
 
 <h1>@ViewData["Title"]</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
+</p>
+<p>
+    < asp-action="Discontinued">Show discontinued Gadgets</>
 </p>
 <table class="table">
     <thead>
@@ -33,9 +36,30 @@
             <td>
                 <a asp-action="Edit" asp-route-id="@item.StatusId">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.StatusId">Details</a> |
+
+                @*
+                    Conditional Delete Availiability
+                    -ONLY allow users to click on the delte button if the product is 
+                    not directly related to any order records
+                    -We'll che the count() of related records for the product --> if the count is 0, allow delte. 
+                    otherwise, disable the delte button
+                *@
+                @if (item.Cars.Count() == 0)
+                {
+                        <a asp-action="Delete" asp-route-id="@item.StatusId">Delete</a>
+                    }
+                    else
+                {
+                    <a disabled="disabled" class="text-danger text-decoration-line-through" title="Cannot delte this Gadget as it is referenced by an Order">                           Delete  
+
+                    </a>
+                    }
+                        
+
                 <a asp-action="Delete" asp-route-id="@item.StatusId">Delete</a>
             </td>
         </tr>
 }
     </tbody>
 </table>
+

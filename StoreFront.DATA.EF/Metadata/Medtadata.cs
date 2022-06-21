@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;//Added for access to required, display, etc...
 
-namespace GadgetStore.DATA.EF.Models
+namespace StoreFront.DATA.EF.Models
 {
     //internal class Metadata
     //{
@@ -96,17 +96,17 @@ namespace GadgetStore.DATA.EF.Models
         [Required]
         [StringLength(25)]
         [Display(Name = "VinNumber")]
-        public String VinNumber { get; set; }
+        public string VinNumber { get; set; }
 
         [Required]
         [StringLength(20)]
         [Display(Name = "InteriorColor")]
-        public String InteriorColor { get; set; }
+        public string InteriorColor { get; set; }
 
-        [Required]
+       
         [StringLength(500)]
         [Display(Name = "Description")]
-        public String? Description { get; set; }
+        public string? Description { get; set; }
 
         [Required]
         [Display(Name = "StatusID")]
@@ -116,6 +116,10 @@ namespace GadgetStore.DATA.EF.Models
 
         [Display(Name = "StyleID")]
         public int StyleID { get; set; }
+
+        [StringLength(75)]
+        [Display(Name = "Image")]
+        public string? ProductImage { get; set; }
 
 
         #endregion
@@ -149,7 +153,7 @@ namespace GadgetStore.DATA.EF.Models
         #endregion
 
         #region UserDetails
-        public class UserDetailsMetadata
+        public class UserDetailMetadata
         {
             public string UserId { get; set; } = null!;
 

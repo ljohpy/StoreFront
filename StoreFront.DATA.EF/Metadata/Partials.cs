@@ -1,4 +1,4 @@
-﻿using GadgetStore.DATA.EF.Models;
+﻿using StoreFront.DATA.EF.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -7,7 +7,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-namespace StoreFront.DATA.EF.Metadata
+using static StoreFront.DATA.EF.Models.CarsMetadata;
+
+namespace StoreFront.DATA.EF.Models
 {
     //internal class Partials
     //{
@@ -39,19 +41,33 @@ namespace StoreFront.DATA.EF.Metadata
     [ModelMetadataType(typeof(BodyStylesMetadata))]
     public partial class BodyStyles
     {
-        private class BodyStylesMetadata
-        {
-        }
+       
     }
+    public class BodyStylesMetadata
+    {
+        //public int StyleId { get; set; }
+        public string StyleName { get; set; } = null!;
+        public string? Description { get; set; }
+    }
+
     #endregion
 
     #region UserDetails
-    [ModelMetadataType(typeof(UserDetailsMetadata))]
-    public partial class UserDetails
+    [ModelMetadataType(typeof(UserDetailMetadata))]
+    public partial class UserDetail
     {
-        private class UserDetailsMetadata
-        {
-        }
+        
+            public string FullName { get { return $"{FirstName} {LastName}"; } }
+        
+    }
+    #endregion
+
+    #region Cars
+    [ModelMetadataType(typeof(CarsMetadata))]
+    public partial class Cars
+    {
+        [NotMapped]
+        public IFormFile? Image { get; set; }
     }
     #endregion
 }

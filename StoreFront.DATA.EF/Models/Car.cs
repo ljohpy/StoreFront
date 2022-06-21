@@ -21,9 +21,12 @@ namespace StoreFront.DATA.EF.Models
         public string? Description { get; set; }
         public int StatusId { get; set; }
         public int StyleId { get; set; }
+        public string? ProductImage { get; set; }
+         public object Image { get; set; }
 
         public virtual ProductStatus Status { get; set; } = null!;
         public virtual BodyStyle Style { get; set; } = null!;
         public virtual ICollection<OrderProduct> OrderProducts { get; set; }
+      
     }
 }
